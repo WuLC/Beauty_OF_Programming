@@ -2,10 +2,11 @@
 # @Author: LC
 # @Date:   2016-05-16 08:39:01
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-06-28 21:08:46
+# @Last Modified time: 2016-06-28 22:06:43
 # @Email: liangchaowu5@gmail.com
 
-# find the number in a unsorted array, the number appearing times is over a certain percentage of the length of the array
+# find the number in a unsorted array, the appearing times of the number is over a certain percentage of the length of the array
+# Boyer-Moore Majority Vote algorithm, m-1 candidates for numbers over 1/m of total numbers
 
 #######################################################################
 # problem1：find the number whose appearing-percentage is more than 50%
