@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-05-14 01:31:44
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-06-28 21:08:57
+# @Last Modified time: 2016-10-24 12:51:56
 # @Email: liangchaowu5@gmail.com
 
 ###############################################################
@@ -22,10 +22,9 @@ def solution1_1(n):
 # solution2,the number equal to pow(5,n) can generate n 0
 def solution1_2(n):
     count = 0
-    tmp = 5
-    while n >= tmp:
-        count += n/tmp
-        tmp *= 5
+    while n >= 5:
+        n /= 5
+        count += n
     return count
 
 
@@ -47,10 +46,9 @@ def solution2_1(n):
 # solution2,the number equal to pow(2,n) can generate n 0
 def solution2_2(n):
     count = 0 
-    tmp = 2
-    while n>=tmp:
-        count += n/tmp
-        tmp <<= 1  # i *= 2
+    while n>=2:
+        n >>= 1 
+        count += n
     return count
 
 
@@ -61,9 +59,12 @@ def solution2_2(n):
 # as pow(2,n) in bianry form must be 100000000...
 # thus,pow(2,n)&(pow(2,n)-1)=0
 ########################################
-def solution3(n):
-    return n&(n-1)==0
+def solution3_1(n):
+    return n == 0 or (n&(n-1))==0
     
+# lowbit
+def solution3_2(n):
+    return (n^(-n)) == 0
 
 
 if __name__ == '__main__':
