@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-11-21 10:42:11
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-11-21 11:35:59
+# @Last Modified time: 2016-11-21 11:41:18
 # @Email: liangchaowu5@gmail.com
 
 # represent decimal number as fractional number
@@ -33,6 +33,8 @@ def deicmal_to_fractional(s):
     s(str): decimal number 
     return(str): fractional representation of the input deciaml number 
     """
+    if '.' not in s:
+        return s
     integer, decimal = s.split('.')
     integer = int(integer)
     if '(' in decimal: # circulation part exists in decimal number
@@ -49,9 +51,10 @@ def deicmal_to_fractional(s):
     gcd = gcd_3(numerator, denominator)
     numerator, denominator = numerator/gcd, denominator/gcd
     numerator += integer * denominator 
-    return str(numerator)+'/'+str(denominator)
+    return str(numerator)+'/'+str(denominator) if denominator != 1 else str(numerator)
 
 if __name__ == '__main__':
     decimal = '0.285714(285714)'
     decimal = '0.3(333)'
+    decimal = '10.000'
     print deicmal_to_fractional(decimal)
